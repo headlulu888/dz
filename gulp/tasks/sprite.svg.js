@@ -18,12 +18,27 @@ module.exports = function() {
       }))
       .pipe($.gp.replace('&gt;', '>'))
       .pipe($.gp.svgSprite({
-        mode: {
+          mode: {
           symbol: {
-            sprite: "../sprite.svg"
+              sprite: "../sprite.svg",
+              render      : {
+                  scss    : {
+                      dest:'../../../../source/style/sprite.scss',
+                      template: "./source/template/_sprite_template.scss"
+                  }
+              }
           }
         }
       }))
       .pipe($.gulp.dest($.config.root + '/assets/img'))
   })
+    $.gulp.task('sprite:svg-style', function() {
+        return $.gulp.src('./source/style/sprite.scss')
+            .pipe($.gp.sourcemaps.init())
+            .pipe($.gp.sass()).on('error', $.gp.notify.onError({ title: 'Style Sprite' }))
+            .pipe($.gp.autoprefixer({ browsers: $.config.autoprefixerConfig }))
+            .pipe($.gp.sourcemaps.write())
+            .pipe($.gulp.dest($.config.root + '/assets/css'))
+            .pipe($.browserSync.stream());
+    })
 };
