@@ -1,7 +1,8 @@
 # Учебная сборка Loftschool
 
 > Сборка работает на gulp версии 4.0. 
-
+Mahnev Andrey
+touch sprite.js
 #### Для начала работы
 
 1. ```clone this repo```
