@@ -4,6 +4,7 @@
 > Mahnev Andrey
 > touch sprite.js
 #### Для начала работы
+#### Файлы Pug находятся в WA02/source/template/pages
 
 1. ```clone this repo```
 2. ```cd path/to/...```
